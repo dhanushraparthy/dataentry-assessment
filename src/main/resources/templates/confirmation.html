@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .new-entry {
+            background-color: #dff0d8;
+        }
+        .previous-entries {
+            background-color: #d9edf7;
+        }
+    </style>
+</head>
+<body>
+<h1>Confirmation Page</h1>
+
+<h2>New Entry</h2>
+
+<div class="entry">
+    <label>Name: </label><span th:text="${entry.name}"></span>
+</div>
+<div class="entry">
+    <label>Age: </label><span th:text="${entry.age}"></span>
+</div>
+<div class="entry">
+    <label>Title: </label><span th:text="${entry.title}"></span>
+</div>
+<div class="entry">
+    <label>Hometown: </label><span th:text="${entry.hometown}"></span>
+</div>
+
+<h2>Previous Entries</h2>
+<table class="previous-entries">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Title</th>
+        <th>Hometown</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${entries}">
+        <td th:text="${entry.name}"></td>
+        <td th:text="${entry.age}"></td>
+        <td th:text="${entry.title}"></td>
+        <td th:text="${entry.hometown}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
